@@ -1,7 +1,8 @@
 package com.fatec.pokemon;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
 
-public interface PokemonRepository extends CrudRepository<Pokemon, Integer> {
-    Pokemon findByName(String name);
+public interface PokemonRepository extends JpaRepository<Pokemon, Integer> {
+    public List<Pokemon> findAllByOrderByPokedexNumberAsc();
 }

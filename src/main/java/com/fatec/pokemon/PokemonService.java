@@ -13,7 +13,7 @@ public class PokemonService {
     private PokemonRepository pokemonRepository;
 
     public Iterable<Pokemon> getPokemons() {
-        return pokemonRepository.findAll();
+        return pokemonRepository.findAllByOrderByPokedexNumberAsc();
     }
 
     public Optional<Pokemon> getPokemonById(int pokedexNumber) {
@@ -22,10 +22,6 @@ public class PokemonService {
 
     public Pokemon savePokemon(Pokemon pokemon) {
         return pokemonRepository.save(pokemon);
-    }
-
-    public Pokemon getPokemonByPokemonName(String name) {
-        return pokemonRepository.findByName(name);
     }
 
     public Pokemon updatePokemon(Pokemon pokemon, int pokedexNumber) {
